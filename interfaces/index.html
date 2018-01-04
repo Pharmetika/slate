@@ -1,0 +1,1602 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;JSON&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="JSON">JSON</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>This page documents Pharmetika&rsquo;s Interface API.  This API is to be used to get information from a pharmacy management system into Pharmetka.  Validation is enabled on each endpoint.  If data does not pass validation the entry will be rejected and provide an explanation as to why.
+Most Pharmetika APIs utilize a JSON body.  The example JSON body is shown as arguments to &ldquo;json&rdquo;.  If the API is query-args-based, the arguments will be described under the &ldquo;query&rdquo; section.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<blockquote>
+<p>API calls can be made via basic HTTP Authentication.</p>
+</blockquote>
+
+<p>A username and password will be provided upon request.  We recommend providing an email address along with the username so that the password can be easily reset.</p>
+
+<p><code class="prettyprint">https://API_USERNAME:PASSWORD@[realm].pharmetika.com/api/endpoint</code></p>
+
+<aside class="notice">
+TLS v1.2 or v1.3 is required. If your pharmacy needs interface endpoints restricted to a particular whitelist of IPs please create a support ticket.
+</aside>
+
+<h1 id="data-validation">Data Validation</h1>
+
+<p>Upon submitting data Pharmetika&rsquo;s API will check each field to ensure it is properly formatted.  The API attempts to guide implementors by providing detailed feedback for each field it could not validate.  These errors will appear in the messages array of the response object.</p>
+
+<blockquote>
+<p>Example of failed response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w"> 
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field_X is not in the proper format"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> 
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field_Y is required"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="common-data-types">Common Data Types</h3>
+
+<table><thead>
+<tr>
+<th>Data Type</th>
+<th>Description</th>
+<th>Pattern</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Phone Number</td>
+<td>10-digits, no dashes, etc.  Sometimes pharmacies will put 9999999999 to indicate the contact should not be called/faxed/etc.</td>
+<td><code>^(?:(\d)\1{9}&#124;1?(&#91;2-9&#93;((?!11)&#91;0-8&#93;\d)&#91;2-9&#93;((?!11)\d{2})\d{4})&#124;(\d)\2{9})$</code></td>
+</tr>
+<tr>
+<td>SSN</td>
+<td>9-digits, no dashes</td>
+<td><code class="prettyprint">\d{9}</code></td>
+</tr>
+<tr>
+<td>NPI</td>
+<td>10-digits</td>
+<td><code class="prettyprint">\d{10}</code></td>
+</tr>
+<tr>
+<td>NDC</td>
+<td>11-digits (HIPAA NDC)</td>
+<td><code class="prettyprint">\d{11}</code></td>
+</tr>
+<tr>
+<td>refills_authorized</td>
+<td>Numeric or &ldquo;PRN&rdquo;</td>
+<td><code>^(PRN&#124;\d+)$</code></td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>All dates and times are in UTC.  Please be sure to convert to UTC if the system is not natively set to UTC time.</td>
+<td><code class="prettyprint">^[12][90]\d\d-?[10]\d-?[0123]\d\s?[012]\d:?[0-5]\d:?[0-5]\d(\.\d)?$</code></td>
+</tr>
+<tr>
+<td>date</td>
+<td>date in &ldquo;YYYYMMDD&rdquo; or &ldquo;YYYY-MM-DD&rdquo;</td>
+<td><code class="prettyprint">[12][90]\d\d-?[10]\d-?[0123]\d</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="unlisted-fields">Unlisted Fields</h3>
+
+<p>Implementors may include additional fields.  Sometimes this can be helpful if you are supporting similar APIs that require other data or you want to provide additional fields for debugging purposes.
+Fields you think may provide the pharmacy with additional context are welcomed and this auxiliary data is saved as a JSON blob in Pharmetika.
+For example, your system may record the lot numbers of dispensed medication.  Including a &ldquo;LotNumber&rdquo; field would allow the pharmacy to run a custom report from Pharmetika and query on that piece of data.</p>
+
+<h1 id="interface-api-endpoints">Interface API Endpoints</h1>
+
+<h2 id="interface-patient-add">Interface Patient Add</h2>
+
+<blockquote>
+<p>Arguments</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"json"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"add_address"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"patient"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"DOB"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1965-01-27"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"IsAnimal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"MI_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"bin_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"city"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"BIG SPRING"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"country"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_created"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-19 16:38:55"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_of_death"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_updated"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-19 19:26:29"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"deceased"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"drivers_license_issuing_state"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"first_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ZELDA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"last_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"FARNSWORTH"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"line_1"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 PHARMACY DR"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"line_2"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"APT 30001"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"link_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">114360</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"patient_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">119000</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"patient_note"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"pharmacy_system_patient_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"829437A3-1271-49BE-8A30-CB980D3CD888"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"pharmacy_system_prescriber_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2D63B342-8A45-45C4-A093-2270FF168AB1"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"postal_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"75000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"sex"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"species_description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"state"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"TX"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"third_party_id_primary"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"third_party_relationship"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"skip_patient_tests"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+curl -XPOST -u [user]:[password]  -d \
+ '{\
+      "add_address" : 1,\
+      "patient" : {\
+         "DOB" : "1969-09-15",\
+         "MRN" : 38079,\
+         "address_line_1" : null,\
+         "address_line_2" : "8405 RIVALA RD",\
+         "address_line_3" : null,\
+         "city" : "IRON MOUNTAIN",\
+         "country" : "US",\
+         "date_updated" : "2017-11-21 09:34:23",\
+         "deceased" : 0,\
+         "drivers_license" : null,\
+         "drivers_license_issuing_state" : null,\
+         "email" : null,\
+         "first_name" : "SHARON",\
+         "insurance_group" : "",\
+         "insurance_id" : 189,\
+         "insurance_policy_id" : "0014390948",\
+         "insurance_relationship" : "1",\
+         "last_name" : "CLAY",\
+         "patient_note" : "NEW PT    Verify allergies w/pt (provided by MDO)",\
+         "pharmacy_system_patient_id" : 38079,\
+         "pharmacy_system_prescriber_id" : 1,\
+         "phone_primary" : "6988782360",\
+         "phone_secondary" : null,\
+         "phone_tertiary" : null,\
+         "postal_code" : "68139",\
+         "sex" : "F",\
+         "skip_patient_tests" : 1,\
+         "species" : "HUMAN",\
+         "ssn" : null,\
+         "state" : "MI"\
+      },\
+      "skip_patient_tests" : 1\
+   }' "https://[REALM].pharmetika.com/api/interface/v5/patient";
+</code></pre>
+<h3 id="http-request">HTTP Request</h3>
+
+<p>POST /api/interface/v5/patient</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bin_number</td>
+<td>Insurance BIN for primary prescription insurance</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>city</td>
+<td>Address city</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>country</td>
+<td>Country [to be used as address]</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>date_created</td>
+<td>date added to pharmacy system</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>date_of_death</td>
+<td>date of death (if applicable)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>date_updated</td>
+<td>date of last system update</td>
+<td>N</td>
+<td>CURRENT_TIMESTAMP</td>
+</tr>
+<tr>
+<td>deceased</td>
+<td>0: not deceased; 1: deceased</td>
+<td>N</td>
+<td>0 (not deceased)</td>
+</tr>
+<tr>
+<td>DOB</td>
+<td>date of birth</td>
+<td>N</td>
+<td></td>
+</tr>
+
+
+<tr>
+<td>drivers_license</td>
+<td>Drivers license or other ASAP ID used if not the drivers license.</td>
+<td>N</td>
+<td></td>
+</tr>
+
+<tr>
+<td>drivers_license_issuing_state</td>
+<td>2-letter state code.  May also be issuing state of ASAP ID used if not the drivers license.</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>email only: test@example.com.  Leave empty if no valid email</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>first name/ given names</td>
+<td>Y</td>
+<td></td>
+</tr>
+
+
+<tr>
+<td>insurance_group</td>
+<td>Primary third-party payer group code</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>insurance_id</td>
+<td>Primary third-party payer unique-identifier in pharmacy system</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>insurance_policy_id</td>
+<td>Primary third-party payer policy number</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>insurance_relationship</td>
+<td>Primary third-party payer policy relationship (1 - primary, 2 - secondary/spouse, 3 - child/other)</td>
+<td>N</td>
+<td></td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+<td>last_name</td>
+<td>last name/family name</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>line_1</td>
+<td>Address line 1</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>line_2</td>
+<td>Address line 2</td>
+<td>N</td>
+<td></td>
+</tr>
+
+<tr>
+<td>MI_name</td>
+<td>Middle name or initial</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>patient_id</td>
+<td>Do not use / ignore</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>patient_note</td>
+<td>A patient level note about the patient.  (Sometimes the &ldquo;memo&rdquo; field)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>pharmacy_system_patient_id</td>
+<td>unique identifier used in the pharmacy system for the patient</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>pharmacy_system_prescriber_id</td>
+<td>unique identifier used in the pharmacy system for the primary prescriber</td>
+<td>N</td>
+<td></td>
+</tr>
+
+<tr>
+<td>phone_primary</td>
+<td>Primary Phone Number</td>
+<td>N</td>
+<td></td>
+</tr>
+
+<tr>
+<td>phone_secondary</td>
+<td>Phone number</td>
+<td>N</td>
+<td></td>
+</tr>
+
+<tr>
+<td>phone_tertiary</td>
+<td>Phone number</td>
+<td>N</td>
+<td></td>
+</tr>
+
+<tr>
+<td>postal_code</td>
+<td>Address postal code</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>sex</td>
+<td>F - female, M - male, U - unknown, O - other</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>species_description</td>
+<td>options: human, feline, canine, cat, dog, other</td>
+<td>N</td>
+<td>human</td>
+</tr>
+
+<tr>
+<td>ssn</td>
+<td>Social Security Number, no dashes</td>
+<td>N</td>
+<td></td>
+</tr>
+
+<tr>
+<td>state</td>
+<td>Address state</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>third_party_id_primary</td>
+<td>unique identifier used in the pharmacy system for the primary third payer</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>third_party_relationship</td>
+<td>1: primary; 2: secondary/spouse; 3: child/other</td>
+<td>N</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="interface-patient-update">Interface Patient Update</h2>
+
+<blockquote>
+<p>Arguments</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"json"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"add_address"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"patient"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"DOB"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1965-01-27"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"IsAnimal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"MI_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"bin_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"city"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"BIG SPRING"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"country"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_created"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-19 16:38:55"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_of_death"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_updated"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-19 19:26:29"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"deceased"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"drivers_license_issuing_state"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"first_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ZELDA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"last_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"FARNSWORTH"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"line_1"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 PHARMACY DR"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"line_2"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"APT 30001"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"link_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">114360</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"patient_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">119000</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"patient_note"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"pharmacy_system_patient_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"829437A3-1271-49BE-8A30-CB980D3CD888"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"pharmacy_system_prescriber_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2D63B342-8A45-45C4-A093-2270FF168AB1"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"postal_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"75000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"sex"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"species_description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"state"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"TX"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"third_party_id_primary"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"third_party_relationship"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"skip_patient_tests"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="http-request">HTTP Request</h3>
+
+<p>POST /api/interface/v5/patient</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bin_number</td>
+<td>Insurance BIN for primary prescription insurance</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>city</td>
+<td>Address city</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>country</td>
+<td>Country [to be used as address]</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>date_created</td>
+<td>date added to pharmacy system</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>date_of_death</td>
+<td>date of death (if applicable)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>date_updated</td>
+<td>date of last system update</td>
+<td>N</td>
+<td>CURRENT_TIMESTAMP</td>
+</tr>
+<tr>
+<td>deceased</td>
+<td>0: not deceased; 1: deceased</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>DOB</td>
+<td>date of birth</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>drivers_license_issuing_state</td>
+<td>2-letter state code.  May also be issuing state of ASAP ID used if not the drivers license.</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>email only: test@example.com.  Leave empty if no valid email</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>first name/ given names</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>last name/family name</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>line_1</td>
+<td>Address line 1</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>line_2</td>
+<td>Address line 2</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>link_id</td>
+<td>Do not use / ignore</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>MI_name</td>
+<td>Middle name or initial</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>patient_id</td>
+<td>Do not use / ignore</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>patient_note</td>
+<td>A patient level note about the patient.  (Sometimes the &ldquo;memo&rdquo; field)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>pharmacy_system_patient_id</td>
+<td>unique identifier used in the pharmacy system for the patient</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>pharmacy_system_prescriber_id</td>
+<td>unique identifier used in the pharmacy system for the primary prescriber</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>postal_code</td>
+<td>Address postal code</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>sex</td>
+<td>F/M</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>species_description</td>
+<td>options: human, feline, canine, cat, dog, other</td>
+<td>N</td>
+<td>human</td>
+</tr>
+<tr>
+<td>state</td>
+<td>Address state</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>third_party_id_primary</td>
+<td>unique identifier used in the pharmacy system for the primary third payer</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>third_party_relationship</td>
+<td>1: primary; 2: secondary/spouse; 3: child/other</td>
+<td>N</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="interface-prescriber-add">Interface Prescriber Add</h2>
+
+<blockquote>
+<p>Arguments</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"json"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"prescriber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"DEA_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"FG4442444"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"MD"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"MI_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"NPI"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1821245555"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"address_line_1"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"8000 BERNIE DR SUITE 777"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"address_line_2"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"city"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ABALINE"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"dr@example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"fax"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">8873333333</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"first_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"JARED"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"last_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GROUSE"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"pharmacy_system_prescriber_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"A8D1CBCF-15A4-451D-9C62-144F68E5777"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"phone_primary"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"7234350098"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"phone_secondary"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"postal_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"77055"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"state"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"TX"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"update_on_duplicate"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="http-request">HTTP Request</h3>
+
+<p>POST /api/interface/v5/prescriber</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescriber</td>
+<td>prescriber object</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.address_line_1</td>
+<td>Address line 1</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.address_line_2</td>
+<td>Address line 2</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.credential</td>
+<td>Examples: MD, NP, DO, etc</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.DEA_number</td>
+<td>DEA# if available</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.email</td>
+<td>email if available</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.first_name</td>
+<td>first name if available</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.last_name</td>
+<td>Family name, sometimes also a clinic or business name</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.MI_name</td>
+<td>Middle name or initial</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.pharmacy_system_prescriber_id</td>
+<td>unique identifier used in the pharmacy system for the primary prescriber</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.phone_primary</td>
+<td>primary phone for clinic/prescriber</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.phone_secondary</td>
+<td>secondary phone</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.phone_sms</td>
+<td>prescriber cell or SMS enabled phone number (if different than primary)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.postal_code</td>
+<td>Address postal code</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescriber.state</td>
+<td>Address state</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>update_on_duplicate</td>
+<td>Must be set to 1 unless you want to create a duplicate prescriber</td>
+<td>Y</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<h2 id="interface-prescription-add">Interface Prescription Add</h2>
+
+<blockquote>
+<p>Arguments</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"json"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"prescription"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"compound_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"controlled"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_entered"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-19"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_expiration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-19"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_start"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_stop"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-19"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_written"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-19"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"days_supply"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"discontinued_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"dispense_as_written_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"drug_class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"drug_description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"TADALAFIL SR 6MG CAPSULE"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"drug_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"6D35BB0C-26D2-4F60-9D56-75A4E5F9B33C"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"last_date_filled"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"last_fill_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"last_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ndc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"69699132506"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"pharmacy_system_patient_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5A441431-A7E8-4FC1-A958-988A672567A2"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"pharmacy_system_prescriber_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"EB7CDE5C-6F78-47E5-8090-5AEB33FB8E01"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"prescriber_link_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">16728</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"prescription_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"prescription_status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"price_third_party"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"prn_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"profile_only_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"quantity_written"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"30.000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"refills_authorized"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"refills_remaining"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"7.000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"remaining_quantity"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"210.000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"rx_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"641346"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"rxcui"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"sig"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"TAKE 1 CAPSULE BY MOUTH EVERY DAY AS NEEDED "</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"third_party_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"724D62B9-8021-4E43-9595-F4E809C03583"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"third_party_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"third_party_indicator_3r"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+curl -XPOST -u [user]:[password]  -d \
+ '{\
+ "prescription" : {\
+         "compound_indicator" : 0,\
+         "controlled" : 0,\
+         "date_entered" : "2017-10-19",\
+         "date_expiration" : "2018-10-19",\
+         "date_start" : null,\
+         "date_stop" : "2018-10-19",\
+         "date_written" : "2017-10-19",\
+         "days_supply" : 30,\
+         "discontinued_indicator" : 0,\
+         "dispense_as_written_indicator" : 0,\
+         "drug_class" : 6,\
+         "drug_description" : "TADALAFIL SR 6MG CAPSULE",\
+         "drug_id" : "6D35BB0C-26D2-4F60-9D56-75A4E5F9B33C",\
+         "last_date_filled" : "2017-06-18",\
+         "last_fill_number" : 2,\
+         "last_price" : 20.47,\
+         "ndc" : "69699132506",\
+         "pharmacy_system_patient_id" : "5A441431-A7E8-4FC1-A958-988A672567A2",\
+         "pharmacy_system_prescriber_id" : "EB7CDE5C-6F78-47E5-8090-5AEB33FB8E01",\
+         "prescriber_link_id" : 16728,\
+         "prescription_indicator" : 1,\
+         "prescription_status" : "Active",\
+         "price_third_party" : null,\
+         "prn_indicator" : 1,\
+         "profile_only_indicator" : null,\
+         "quantity_written" : "30.000",\
+         "refills_authorized" : 6,\
+         "refills_remaining" : "4.000",\
+         "remaining_quantity" : "210.000",\
+         "rx_number" : "641346",\
+         "rxcui" : null,\
+         "sig" : "TAKE 1 CAPSULE BY MOUTH EVERY DAY AS NEEDED ",\
+         "third_party_id" : "724D62B9-8021-4E43-9595-F4E809C03583",\
+         "third_party_indicator" : "0",\
+         "third_party_indicator_3r" : "R"\
+      }\
+   }' "https://[REALM].pharmetika.com/api/interface/v5/prescription";
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>POST /api/interface/v5/prescription</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>prescription object</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.autoship</td>
+<td>Include in recurring refill program</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.compound_indicator</td>
+<td>1: compound; 0: non-compound</td>
+<td>Y</td>
+<td>0</td>
+</tr>
+<tr>
+<td>prescription.controlled</td>
+<td>0: not controlled; 1: controlled substance</td>
+<td>Y</td>
+<td>0</td>
+</tr>
+<tr>
+<td>prescription.date_entered</td>
+<td>Date entered into pharmacy system</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.date_expiration</td>
+<td>prescription expiration date</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.date_start</td>
+<td>date to begin taking medication.  E.g. dispensed for upcoming procedure</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.date_stop</td>
+<td>stop date.  E.g. an antibiotic medication</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.date_written</td>
+<td>date prescription written</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.days_supply</td>
+<td>numeric days supply</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.discontinued_indicator</td>
+<td>0: active; 1: discontinued</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.dispense_as_written_indicator</td>
+<td>0-9</td>
+<td>N</td>
+<td>0</td>
+</tr>
+<tr>
+<td>prescription.drug_class</td>
+<td>0-6.  0 or 6 being not scheduled</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.drug_description</td>
+<td>medication name</td>
+<td>N</td>
+<td>uses name from RxNorm if not provided</td>
+</tr>
+<tr>
+<td>prescription.drug_id</td>
+<td>unique identifier from pharmacy system for drug, product, or formulation</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.last_date_filled</td>
+<td>last date filled, if available</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.last_fill_number</td>
+<td>E.g. 5 if it has been filled 5 times</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.last_price</td>
+<td>price for the prescription the last time it was filled</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.ndc</td>
+<td>NDC (11-digits)</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.pharmacy_system_patient_id</td>
+<td>unique identifier used in the pharmacy system for the patient</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.pharmacy_system_prescriber_id</td>
+<td>unique identifier used in the pharmacy system for the primary prescriber</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.prescription_indicator</td>
+<td>1: prescription; 0: OTC product</td>
+<td>Y</td>
+<td>1</td>
+</tr>
+<tr>
+<td>prescription.prescription_status</td>
+<td>Active: active prescription; Reassigned: Inactivated and given a new Rx#; Discontinued: Inactivated; Transferred: Transferred to another pharmacy</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.price_third_party</td>
+<td>Amount 3rd party paid for last fill</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.prn_indicator</td>
+<td>1: PRN; 0: not PRN</td>
+<td>Y</td>
+<td>0</td>
+</tr>
+<tr>
+<td>prescription.profile_only_indicator</td>
+<td>0: if filled; 1: if only on profile and has not beed filled</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.quantity_written</td>
+<td>Numeric representation of quantity written</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.refills_authorized</td>
+<td>Number of refills authorized.  A number or &ldquo;PRN&rdquo;</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.refills_remaining</td>
+<td>Remaining refills available</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.remaining_quantity</td>
+<td>Remaining quantity available to be dispensed</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.rxcui</td>
+<td>RxNorm RXCUI</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.rx_number</td>
+<td>Prescription Number</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.sig</td>
+<td>text of written instructions</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.third_party_id</td>
+<td>unique identifier used in the pharmacy system for the primary third payer</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>prescription.third_party_indicator</td>
+<td>0: cash; 1: third party</td>
+<td>Y</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="interface-transaction-add">Interface Transaction Add</h2>
+
+<blockquote>
+<p>Arguments</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"json"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"transaction"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"AuthorizedBy"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Brian Tamson"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CreatedBy"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Brenda Johnson"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"EffectiveDate"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Oct 13 2017 12:00:00:000AM"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"IsPRN"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"RequestDiscount"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"RxId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3A12C6EA-3CBA-458D-A2C8-FB985CF0D600"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"UpdatedBy"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Dave Davis"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"claim_status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"copay"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"70.00"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_created"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-13 21:05:28"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_filled"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-13"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_transaction"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-13 21:05:28"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_updated"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-18 15:19:55"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"days_supply"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">140</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"dispensed_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"drug_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"FD26EABF-CBD3-4548-94F6-416D4DAAE1E2"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"fill_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"pharmacy_system_transaction_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"8183CD9C-95CF-4114-ACF3-009F9E177324"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"70.00"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"primary_third_party_adjudicated_amount"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"70.00"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"quantity_dispensed"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"30.000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"rx_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"63324"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"third_party_id_primary"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"724D62B9-8021-4E43-9595-F4E809C03583"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"third_party_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"timestamp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-18 15:19:55"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"transaction_note"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"send with OTCs"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"transaction_status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"transaction_status_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"void_indicator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"workflow_status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+
+
+
+
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>POST /api/interface/v5/prescription_transaction</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transaction</td>
+<td>transaction object</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.claim_status</td>
+<td>paid, rejected, pending</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.copay</td>
+<td>amount patient must pay</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.date_created</td>
+<td>timestamp the transaction was created in the pharmacy system</td>
+<td>N</td>
+<td>CURRENT_TIMESTAMP</td>
+</tr>
+<tr>
+<td>transaction.date_filled</td>
+<td>date prescription was filled in the pharmacy system</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.date_transaction</td>
+<td>timestamp the transaction was considered filled in the pharmacy system (often the same as date_created)</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.date_updated</td>
+<td>date the transaction was last updated</td>
+<td>N</td>
+<td>CURRENT_TIMESTAMP</td>
+</tr>
+<tr>
+<td>transaction.days_supply</td>
+<td>day supply filled</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.dispensed_indicator</td>
+<td>0: may be filled, but not yet dispensed; 1: dispensed</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.dispensed_ndc</td>
+<td>NDC dispensed (11-digit)</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.drug_id</td>
+<td>unique identifier of product in the pharmacy system</td>
+<td>N</td>
+<td>defaults to the prescription-level identifier</td>
+</tr>
+<tr>
+<td>transaction.fill_number</td>
+<td>0: initial fill; 1: first refill; 2: second refill (third fill)&hellip;</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.pharmacy_system_transaction_id</td>
+<td>unique identifier of transaction in the pharmacy system</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.price</td>
+<td>total prescription price for this fill</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.primary_third_party_adjudicated_amount</td>
+<td>third-party paid amount (primary payer)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.quantity_dispensed</td>
+<td>numeric quantity dispensed</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.rx_number</td>
+<td>prescription number</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.third_party_id_primary</td>
+<td>unique identifier used in the pharmacy system for the primary third payer</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.third_party_indicator</td>
+<td>0: cash; 1: third party payer</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.timestamp</td>
+<td>timestamp of when data is pushed to Pharmetika.  Often this is the current timestamp, but if a message can not be processed real-time for some reason you may want to set the time the message was originated to ensure proper re-play order of the transaction</td>
+<td>N</td>
+<td>CURRENT_TIMESTAMP</td>
+</tr>
+<tr>
+<td>transaction.transaction_note</td>
+<td>note for this fill</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.transaction_status</td>
+<td>0: deleted/voided transaction; 1: filled; &ldquo;filled&rdquo;: filled (same as 1); deleted: deteleted/voided (same as 0);  this field is a placeholder for other future status indicators</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.transaction_status_code</td>
+<td>optional status code if available</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.void_indicator</td>
+<td>1: deleted/voided transaction; 0: filled;  Note: this field is similar to transaction_status, but the inverse</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>transaction.workflow_status</td>
+<td>description of status (E.g. billing, dispensing, RPh check, ready, shipping, etc)</td>
+<td>N</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="errors">Errors</h1>
+
+<aside class="notice">Errors are reported back as `&ldquo;success&rdquo;: false`</aside>
+
+<p>Pharmetika&rsquo;s API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; improperly formatted</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key or username/password is incorrect</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden &ndash; The endpoint requested requires elevated permissions</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified endpoint could not be found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed &ndash; You tried to access an endpoint with an invalid method (e.g. PUT when it should be POST)</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests &ndash; Pharmetika has rate-limited the request velocity</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="JSON">JSON</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
